@@ -252,7 +252,7 @@ displayGreetings();
 
 
 
-
+/* 
 function openBanking(bank) {
 
     const bankingApps = {
@@ -273,56 +273,31 @@ function openBanking(bank) {
             appLink: "maribank://",
             website: "https://www.maribank.ph/"
         }
-    };
-
-    
-const recipientNumber = "9562545921";
-
+    }; */
+// Open the selected banking or e-wallet service
 function openBanking(bank) {
 
-    const bankingApps = {
-        maya: {
-            name: "Maya",
-            appLink: "maya://",
-            website: "https://www.maya.ph/"
-        },
+    let loginURL = "";
 
-        gcash: {
-            name: "GCash",
-            appLink: "gcash://",
-            website: "https://gcash.com/"
-        },
+    switch (bank) {
 
-        maribank: {
-            name: "MariBank",
-            appLink: "maribank://",
-            website: "https://www.maribank.ph/"
-        }
-    };
+        case "maya":
+            loginURL = "https://www.maya.ph/";
+            break;
 
-    const selectedBank = bankingApps[bank];
+        case "gcash":
+            loginURL = "https://gcash.com/";
+            break;
 
-    if (!selectedBank) {
-        alert("Banking application not found.");
-        return;
+        case "maribank":
+            loginURL = "https://www.maribank.ph/";
+            break;
+
+        default:
+            alert("Banking service not found.");
+            return;
     }
 
-    const confirmOpen = confirm(
-        "Open " + selectedBank.name +
-        " for recipient number " + recipientNumber + "?"
-    );
-
-    if (!confirmOpen) {
-        return;
-    }
-
-    // Save the intended recipient for reference.
-    sessionStorage.setItem(
-        "bankingRecipient",
-        recipientNumber
-    );
-
-    // Attempt to open the installed mobile application.
-    window.location.href = selectedBank.appLink;
+    // Open the official banking website
+    window.open(loginURL, "_blank", "noopener,noreferrer");
 }
-
