@@ -492,3 +492,142 @@ body {
         transform: translateY(0);
     }
 }
+
+
+/* =====================================
+   E-WALLET SECTION
+===================================== */
+
+.banking-section {
+    max-width: 850px;
+    margin: 35px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #f0fff4, #ffffff);
+    border: 1px solid #d6eadb;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+    box-sizing: border-box;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    color: #145c32;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+/* Three Column Layout */
+.bank-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* E-Wallet Cards */
+.bank-card {
+    padding: 25px 15px;
+    background: #ffffff;
+    border: 1px solid #e5e9e6;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.bank-card:hover {
+    transform: translateY(-6px);
+    border-color: #16803c;
+    box-shadow: 0 10px 20px rgba(22, 128, 60, 0.15);
+}
+
+/* App Icons */
+.app-icon {
+    width: 70px;
+    height: 70px;
+    margin: 5px auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 800;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.bank-card:hover .app-icon {
+    transform: scale(1.08);
+}
+
+/* Maya / PayMaya */
+.maya-icon {
+    background: #00a86b;
+}
+
+/* GCash */
+.gcash-icon {
+    background: #007dff;
+}
+
+/* MariBank */
+.maribank-icon {
+    background:#ff4444;
+}
+
+/* App Names */
+.bank-card h3 {
+    margin: 10px 0;
+    color: #222222;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Description */
+.bank-card p {
+    min-height: 35px;
+    margin: 0 0 18px;
+    color: #777777;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Open Buttons */
+.bank-button {
+    display: block;
+    padding: 11px 10px;
+    background: linear-gradient(135deg, #16803c, #0d5728);
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.bank-button:hover {
+    background: #c62828;
+    transform: scale(1.03);
+}
+
+/* Tablet */
+@media (max-width: 650px) {
+    .bank-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 420px) {
+    .bank-list {
+        grid-template-columns: 1fr;
+    }
+
+    .banking-section {
+        padding: 15px;
+    }
+}
+

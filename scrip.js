@@ -249,3 +249,18 @@ greetingForm.addEventListener("submit", function(event) {
 
 // Display saved greetings when page loads
 displayGreetings();
+
+
+// SMS Recipient Number
+const recipientNumber = "9562545921";
+
+// Function to open SMS application
+function sendToNumber() {
+
+    const message = "Hello! I would like to contact you.";
+
+    const smsLink = `sms:${recipientNumber}?body=${encodeURIComponent(message)}`;
+
+    // Open the device messaging application
+    window.location.href = smsLink;
+}
