@@ -251,16 +251,78 @@ greetingForm.addEventListener("submit", function(event) {
 displayGreetings();
 
 
-// SMS Recipient Number
+
+
+function openBanking(bank) {
+
+    const bankingApps = {
+        maya: {
+            name: "Maya",
+            appLink: "maya://",
+            website: "https://www.maya.ph/"
+        },
+
+        gcash: {
+            name: "GCash",
+            appLink: "gcash://",
+            website: "https://gcash.com/"
+        },
+
+        maribank: {
+            name: "MariBank",
+            appLink: "maribank://",
+            website: "https://www.maribank.ph/"
+        }
+    };
+
+    
 const recipientNumber = "9562545921";
 
-// Function to open SMS application
-function sendToNumber() {
+function openBanking(bank) {
 
-    const message = "Hello! I would like to contact you.";
+    const bankingApps = {
+        maya: {
+            name: "Maya",
+            appLink: "maya://",
+            website: "https://www.maya.ph/"
+        },
 
-    const smsLink = `sms:${recipientNumber}?body=${encodeURIComponent(message)}`;
+        gcash: {
+            name: "GCash",
+            appLink: "gcash://",
+            website: "https://gcash.com/"
+        },
 
-    // Open the device messaging application
-    window.location.href = smsLink;
+        maribank: {
+            name: "MariBank",
+            appLink: "maribank://",
+            website: "https://www.maribank.ph/"
+        }
+    };
+
+    const selectedBank = bankingApps[bank];
+
+    if (!selectedBank) {
+        alert("Banking application not found.");
+        return;
+    }
+
+    const confirmOpen = confirm(
+        "Open " + selectedBank.name +
+        " for recipient number " + recipientNumber + "?"
+    );
+
+    if (!confirmOpen) {
+        return;
+    }
+
+    // Save the intended recipient for reference.
+    sessionStorage.setItem(
+        "bankingRecipient",
+        recipientNumber
+    );
+
+    // Attempt to open the installed mobile application.
+    window.location.href = selectedBank.appLink;
 }
+
