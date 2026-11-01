@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Christmas Holiday</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>🎄 Christmas Holiday 🎅</h1>
+        <p>Celebrate the joy and magic of Christmas!</p>
+        <p>Merry Christmas and Happy Holidays!</p>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        
+<!-- SONG SELECTION -->
+<div class="song-selection">
+    <h2>Select Christmas Song</h2>
+
+    <button onclick="showSong(1)">1</button>
+    <button onclick="showSong(2)">2</button>
+    <button onclick="showSong(3)">3</button>
+    <button onclick="showSong(4)">4</button>
+    <button onclick="showSong(5)">5</button>
+    <button onclick="showSong(6)">6</button>
+    <button onclick="showSong(7)">7</button>
+    <button onclick="showSong(8)">8</button>
+    <button onclick="showSong(9)">9</button>
+    <button onclick="showSong(10)">10</button>
+</div>
+<!-- MODAL -->
+<div class="modal" id="songModal">
+
+    <div class="modal-content">
+
+        <button class="close-modal" onclick="closeModal()">
+            &times;
+        </button>
+
+        <h2 id="modalTitle">Christmas Song</h2>
+
+        <p id="modalCategory"></p>
+
+        <audio id="modalAudio" controls>
+            Your browser does not support audio.
+        </audio>
+
+        <button class="close-button" onclick="closeModal()">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="song-list">
+
+    <div class="song" id="song-1">
+        <h3 class="song-title">1. Jingle Bells</h3>
+        <p class="song-category">Christmas Classic</p>
+        <audio class="song-audio" controls>
+            <source src="songs/jingle-bells.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="song" id="song-2">
+        <h3 class="song-title">2. Silent Night</h3>
+        <p class="song-category">Christmas Hymn</p>
+        <audio class="song-audio" controls>
+            <source src="songs/silent-night.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="song" id="song-3">
+        <h3 class="song-title">3. We Wish You a Merry Christmas</h3>
+        <p class="song-category">Christmas Carol</p>
+        <audio class="song-audio" controls>
+            <source src="songs/merry-christmas.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="song" id="song-4">
+        <h3 class="song-title">4. Deck the Halls</h3>
+        <p class="song-category">Christmas Carol</p>
+        <audio class="song-audio" controls>
+            <source src="songs/deck-the-halls.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="song" id="song-5">
+        <h3 class="song-title">5. O Christmas Tree</h3>
+        <p class="song-category">Christmas Classic</p>
+        <audio class="song-audio" controls>
+            <source src="songs/o-christmas-tree.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="song" id="song-6">
+        <h3 class="song-title">6. Joy to the World</h3>
+        <p class="song-category">Christmas Hymn</p>
+        <audio class="song-audio" controls>
+            <source src="songs/joy-to-the-world.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="song" id="song-7">
+        <h3 class="song-title">7. The First Noel</h3>
+        <p class="song-category">Christmas Carol</p>
+        <audio class="song-audio" controls>
+            <source src="songs/the-first-noel.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="song" id="song-8">
+        <h3 class="song-title">8. Hark! The Herald Angels Sing</h3>
+        <p class="song-category">Christmas Hymn</p>
+        <audio class="song-audio" controls>
+            <source src="songs/herald-angels.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="song" id="song-9">
+        <h3 class="song-title">9. O Holy Night</h3>
+        <p class="song-category">Christmas Classic</p>
+        <audio class="song-audio" controls>
+            <source src="songs/o-holy-night.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="song" id="song-10">
+        <h3 class="song-title">10. Away in a Manger</h3>
+        <p class="song-category">Christmas Carol</p>
+        <audio class="song-audio" controls>
+            <source src="songs/away-in-a-manger.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <!-- Santa Claus -->
+<div class="santa-container">
+    <div class="santa">🎅</div>
+    <h3>Merry Christmas!</h3>
+    <p>Santa Claus is here to spread Christmas joy!</p>
+</div>
+
+<!-- Comment Section -->
+<div class="comment-section">
+
+    <h3>🎄 Send Your Christmas Greeting</h3>
+
+    <form id="greetingForm">
+
+        <div class="form-group">
+            <label for="guestName">Your Name:</label>
+            <input
+                type="text"
+                id="guestName"
+                placeholder="Enter your name"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="guestComment">Your Christmas Greeting:</label>
+            <textarea
+                id="guestComment"
+                placeholder="Write your Christmas greeting..."
+                required
+            ></textarea>
+        </div>
+
+        <button type="submit" class="submit-button">
+            Submit Greeting
+        </button>
+
+    </form>
+
+    <!-- Greeting Name List -->
+    <div class="greeting-list">
+        <h3>🎁 Christmas Greeting Name List</h3>
+        <div id="greetingList"></div>
+    </div>
+
+</div>
+
+</div>
+
+</main>
+
+<script src="./scrip.js"></script>
+</body>
+
+</html>

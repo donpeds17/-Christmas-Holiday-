@@ -1,0 +1,494 @@
+
+/* =====================================
+   GENERAL SETTINGS
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #032f23,
+        #08633e,
+        #8b0000
+    );
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0, 35, 22, 0.95);
+    border-bottom: 4px solid #ffd700;
+}
+
+.header h1 {
+    font-size: 42px;
+    color: #ffd700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px #000000;
+}
+
+.header p {
+    font-size: 17px;
+    color: #ffffff;
+    line-height: 1.8;
+}
+
+/* =====================================
+   MAIN CONTAINER
+===================================== */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+/* =====================================
+   SECTION TITLE
+===================================== */
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    color: #ffd700;
+    margin-bottom: 25px;
+}
+
+/* =====================================
+   SONG SELECTION
+===================================== */
+
+.song-selection {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.song-selection button {
+    min-width: 45px;
+    padding: 12px 16px;
+    margin: 6px;
+    background: #064e3b;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.song-selection button:hover {
+    background: #ffd700;
+    color: #064e3b;
+    transform: translateY(-3px);
+}
+
+.song-selection button:active {
+    transform: scale(0.95);
+}
+
+/* =====================================
+   SONG LIST
+===================================== */
+
+.song-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* =====================================
+   INDIVIDUAL SONG
+===================================== */
+
+.song {
+    display: none;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid #ffd700;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.song:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-4px);
+}
+
+/* =====================================
+   SONG TITLE
+===================================== */
+
+.song-title {
+    font-size: 22px;
+    color: #ffd700;
+    margin-bottom: 12px;
+}
+
+/* =====================================
+   SONG CATEGORY
+===================================== */
+
+.song-category {
+    font-size: 15px;
+    color: #eeeeee;
+    margin-bottom: 15px;
+}
+
+/* =====================================
+   SONG AUDIO
+===================================== */
+
+.song-audio {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* =====================================
+   HIDDEN SONG DATA
+===================================== */
+
+.song-data {
+    display: none;
+}
+
+/* =====================================
+   MODAL BACKGROUND
+===================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* =====================================
+   MODAL CONTENT
+===================================== */
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 30px;
+
+    background: linear-gradient(
+        135deg,
+        #064e3b,
+        #08633e,
+        #8b0000
+    );
+
+    border: 2px solid #ffd700;
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+
+    animation: modalAnimation 0.3s ease;
+}
+
+/* MODAL ANIMATION */
+
+@keyframes modalAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =====================================
+   MODAL TITLE
+===================================== */
+
+.modal-content h2 {
+    color: #ffd700;
+    font-size: 27px;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+.modal-content p {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* =====================================
+   MODAL AUDIO
+===================================== */
+
+.modal-content audio {
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+}
+
+/* =====================================
+   CLOSE X BUTTON
+===================================== */
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    background: transparent;
+    border: none;
+
+    color: #ffd700;
+    font-size: 35px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: #ff4444;
+    transform: rotate(90deg);
+}
+
+/* =====================================
+   CLOSE BUTTON
+===================================== */
+
+.close-button {
+    padding: 12px 30px;
+
+    background: #c62828;
+    color: #ffffff;
+
+    border: 1px solid #ffd700;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-button:hover {
+    background: #ffd700;
+    color: #064e3b;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.footer {
+    text-align: center;
+    background: rgba(0, 35, 22, 0.95);
+    color: #ffd700;
+
+    padding: 25px 15px;
+    margin-top: 40px;
+
+    border-top: 3px solid #ffd700;
+}
+
+.footer p {
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+
+    .song-list {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 35px 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .header {
+        padding: 25px 10px;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .song-selection button {
+        min-width: 40px;
+        padding: 10px 12px;
+        margin: 4px;
+    }
+
+    .modal {
+        padding: 12px;
+    }
+
+    .modal-content {
+        padding: 35px 15px;
+    }
+}
+
+/* Santa Claus */
+.santa-container {
+    text-align: center;
+    margin: 20px 0;
+    animation: santaAppear 1s ease;
+}
+
+.santa {
+    font-size: 90px;
+}
+
+.santa-container h3 {
+    color: #c62828;
+    margin: 10px 0;
+}
+
+.santa-container p {
+    color:#000000;
+}
+
+/* Comment Section */
+.comment-section {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff8e7;
+    border-radius: 12px;
+}
+
+.comment-section h3 {
+    color: #b71c1c;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background: #c62828;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-button:hover {
+    background: #8e0000;
+}
+
+/* Greeting List */
+.greeting-list {
+    margin-top: 25px;
+}
+
+.greeting-item {
+    background: white;
+    padding: 12px;
+    margin-top: 10px;
+    border-left: 5px solid #c62828;
+    border-radius: 7px;
+}
+
+.greeting-item strong {
+    color: #b71c1c;
+}
+
+.greeting-item p {
+    margin-bottom: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Santa Animation */
+@keyframes santaAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
